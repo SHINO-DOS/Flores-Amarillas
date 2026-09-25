@@ -1,51 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Flores Amarillas &lt;3</title>
-    <link rel="stylesheet" href="Css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4d79a">
+    <meta name="description" content="Un pequeño jardín que florece para ti.">
+    <title>Un jardín para ti</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@1&display=swap" rel="stylesheet">
-    <!--
-        Codigo By: MartL7
-    -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/style.css">
 </head>
 <body>
+    <main class="garden" id="garden">
+        <div class="sky" aria-hidden="true"></div>
+        <canvas class="scene" id="scene" aria-hidden="true"></canvas>
+        <div class="garden-fallback" id="gardenFallback" aria-hidden="true"></div>
+        <div class="grain" aria-hidden="true"></div>
 
-    <div class="Contenedor-Binicio">
-        <button class="Button" id="BVer"> Clicka aqui </button>
-    </div>
+        <header class="topbar">
+            <a class="wordmark" href="#garden" aria-label="Un jardín para ti, inicio"><span class="wordmark-mark" aria-hidden="true">✳</span> un jardín para ti</a>
+            <button class="sound-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Activar música">
+                <span class="sound-icon" aria-hidden="true">♫</span>
+                <span id="musicLabel">Activar música</span>
+            </button>
+        </header>
 
-    <div class="Con-Emergente">
-        <div id="resultado" class="cua">
-            <p id="res">
-                Hola, antes de iniciar, solo quiero recordarte que eres 
-                muy especial para mí y gracias por todo. &lt;3
-            </p>    
-            <button id="BotonCerrar" class="Button">Cerrar</button>
-        </div>
-    </div>
+        <section class="welcome" id="welcome" aria-labelledby="welcomeTitle">
+            <p class="eyebrow"><span></span> UN REGALO HECHO CON CARIÑO</p>
+            <h1 id="welcomeTitle">Hay flores que duran un instante.<br><em>Este jardín es para ti.</em></h1>
+            <button class="open-button" id="openGift" type="button">
+                <span>Abrir mi regalo</span><span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+        </section>
 
-    <div class="Con-2">
-        <h1 id="Titulo"> Elije una Opcion </h1>
-        <div class="Con">
-            <button class="Button" id="B1"> 1 Flor </button>
-            <button class="Button" id="B12"> 12 Flores :) </button>
-        </div>
-    </div>
+        <div class="floating-words" id="floatingWords" aria-hidden="true"></div>
 
-    <main class="Contenedor">
-        <canvas id="Flor" class="Flor" width="800" height="600"></canvas>
+        <aside class="letter" id="letter" aria-labelledby="letterTitle" aria-hidden="true">
+            <div class="letter-shadow" aria-hidden="true">
+                <svg viewBox="0 0 290 100" preserveAspectRatio="xMidYMid meet">
+                    <g fill="none" stroke="#554632" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M145 97Q135 65 103 36M145 97Q151 58 173 26M143 92Q119 67 72 58M148 90Q174 66 219 57" stroke-width="3"/>
+                        <path d="M118 58Q93 41 88 52Q98 68 123 66M162 60Q183 40 190 52Q184 68 158 68M112 44Q95 24 104 20Q120 27 122 47M178 44Q193 22 201 29Q202 43 176 53" stroke-width="2"/>
+                        <g fill="#554632" stroke="none">
+                            <circle cx="102" cy="34" r="4"/><circle cx="173" cy="25" r="4"/>
+                            <ellipse cx="103" cy="28" rx="4" ry="12"/><ellipse cx="103" cy="40" rx="4" ry="12"/>
+                            <ellipse cx="97" cy="34" rx="12" ry="4"/><ellipse cx="109" cy="34" rx="12" ry="4"/>
+                            <ellipse cx="173" cy="20" rx="3" ry="10"/><ellipse cx="173" cy="30" rx="3" ry="10"/>
+                            <ellipse cx="168" cy="25" rx="10" ry="3"/><ellipse cx="178" cy="25" rx="10" ry="3"/>
+                            <path d="M131 87q-15-12-20 0q12 8 20 0m27 1q15-13 21-3q-11 10-21 3"/>
+                        </g>
+                        <path d="M134 82q-20 1-12 10q9 7 20-1q11 9 20 1q8-9-12-10l-8 4z" stroke-width="3"/>
+                    </g>
+                </svg>
+            </div>
+            <p class="letter-kicker" id="letterKicker">PARA TI, CON TODO MI CARIÑO</p>
+            <img class="personal-photo" id="personalPhoto" alt="Un recuerdo especial" hidden>
+            <h2 id="letterTitle">Para ti, <span id="recipientName">persona bonita</span></h2>
+            <p class="dedication" id="dedicationText"></p>
+            <p class="signature"><span>Con cariño,</span><strong id="signatureText"></strong></p>
+            <div class="letter-footer">
+                <button class="discovery-button" id="discoverFlower" type="button" aria-label="Descubrir una frase bonita">
+                    <span aria-hidden="true">✳</span> Un pensamiento para ti
+                </button>
+                <p class="discovery-message" id="discoveryMessage" aria-live="polite"></p>
+            </div>
+        </aside>
 
-        <div class="Texto">
-            <h2 id="Text">Para la niña mas Linda del Mundo.</h2>
-        </div>
-
+        <div class="scene-caption" aria-hidden="true"><span class="caption-line"></span> Flores para alegrarte el día</div>
+        <div class="horizon" aria-hidden="true"></div>
     </main>
-
-    <script src="Js/app.js"></script>
-    <script src="Js/Dis.js"></script>
+    <script src="Js/config.js"></script>
+    <script type="module" src="Js/app.js"></script>
 </body>
 </html>
